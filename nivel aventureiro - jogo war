@@ -1,0 +1,35 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <time.h>
+
+#define TOTAL 5
+
+// Definição da struct Territorio
+struct Territorio {
+    char nome[30];
+    char cor[10];
+    int tropas;
+};
+
+// Função para cadastrar os territórios
+void cadastrarTerritorios(struct Territorio *t) {
+    for (int i = 0; i < TOTAL; i++) {
+        printf("\nCadastro do Território %d\n", i + 1);
+
+        printf("Nome: ");
+        scanf(" %29[^\n]", t[i].nome);
+
+        printf("Cor do exército: ");
+        scanf(" %9s", t[i].cor);
+
+        printf("Quantidade de tropas: ");
+        scanf("%d", &t[i].tropas);
+    }
+}
+
+// Função para exibir o mapa
+void exibirMapa(struct Territorio *t) {
+    printf("\n=== MAPA ATUAL ===\n");
+    for (int i = 0; i < TOTAL; i++) {
+        printf("[%d] %s | Cor: %s
